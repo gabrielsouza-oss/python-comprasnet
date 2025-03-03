@@ -104,7 +104,7 @@ class SearchAuctions:
             log.error('error trying to get auctions from {}, page {}. Status code: {}'.format(
                 data['dt_publ_ini'], data['numpag'], response.status_code
             ))
-            return
+            return response.text
 
         return response.text
 
