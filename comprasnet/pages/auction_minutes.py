@@ -25,7 +25,8 @@ class AuctionMinutes(BaseDetail):
     def get_params(self):
         params = {"co_no_uasg": self.co_no_uasg,
                   "numprp": self.numprp,
-                  "codigoModalidade":5}
+                  "codigoModalidade":5,
+                 }
         return self._order_dict(params)
 
     def get_data(self):
