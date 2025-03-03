@@ -143,9 +143,7 @@ class SearchAuctions:
                         codigo_da_uasg_valor = line.split("digo da UASG: ")[-1].strip()
                         current_result[codigo_da_uasg_chave] = codigo_da_uasg_valor
                     except IndexError as e:
-                        log.error('error when trying to extract "código da UASG" - {}'.format(
-                            current_result))
-                        log.exception(e)
+                        print(e)
                         pass
 
                 if 'Pregão Eletrônico Nº' in line:
@@ -158,10 +156,7 @@ class SearchAuctions:
                         pregao_eletronico_valor = pregao_eletronico_valor.replace('</b>', '')
                         current_result[pregao_eletronico_chave] = pregao_eletronico_valor
                     except IndexError as e:
-                        log.error(
-                            'error when trying to extract "Pregão Eletrônico No" - {}'.format(
-                                current_result))
-                        log.exception(e)
+                        print(e)
                         pass
 
                 if 'Objeto:' in line:
@@ -170,9 +165,7 @@ class SearchAuctions:
                         objeto_valor = line.split('Objeto:')[-1].strip()
                         current_result[objeto_chave] = objeto_valor
                     except IndexError as e:
-                        log.error('error when trying to extract "Objeto" - {}'.format(
-                            current_result))
-                        log.exception(e)
+                        print(e)
                         pass
 
                 if 'Edital a partir de' in line:
@@ -188,9 +181,7 @@ class SearchAuctions:
                         current_result['edital-a-partir-de-str'] = edital_a_partir_de
                         current_result['edital-a-partir-de'] = edital_a_partir_de_data
                     except IndexError as e:
-                        log.error('error when trying to extract "Edital a partir de" - {}'.format(
-                            current_result))
-                        log.exception(e)
+                        print(e)
                         pass
 
                 if 'Endereço' in line:
@@ -203,11 +194,8 @@ class SearchAuctions:
                         endereco_valor = normalize('NFKD', endereco_valor)
                         current_result[endereco_chave] = endereco_valor
                     except IndexError as e:
-                        log.error('error when trying to extract "Endereço" - {}'.format(
-                            current_result))
-                        log.exception(e)
+                        print(e)
                         pass
-
                 if 'Telefone' in line:
                     try:
                         telefone_chave = line.split(':')[0]
@@ -225,9 +213,7 @@ class SearchAuctions:
 
                         current_result[telefone_chave] = telefone_valor
                     except IndexError as e:
-                        log.error('error when trying to extract "Telefone" - {}'.format(
-                            current_result))
-                        log.exception(e)
+                        print(e)
                         pass
 
                 if 'Fax' in line:
@@ -248,8 +234,7 @@ class SearchAuctions:
 
                         current_result[fax_chave] = fax_valor
                     except IndexError as e:
-                        log.error('error when trying to extract "Fax" - {}'.format(current_result))
-                        log.exception(e)
+                        print(e)
                         pass
 
                 if 'Entrega da Proposta' in line:
@@ -267,9 +252,7 @@ class SearchAuctions:
                         current_result[entrega_proposta_chave_str] = entrega_proposta_valor_str
                         current_result[entrega_proposta_chave] = entrega_proposta_valor_date
                     except IndexError as e:
-                        log.error('error when trying to extract "Entrega da proposta" - {}'.format(
-                            current_result))
-                        log.exception(e)
+                        print(e)
                         pass
 
                 if 'Abertura da Proposta' in line:
@@ -285,10 +268,7 @@ class SearchAuctions:
                         current_result[abertura_proposta_chave_str] = abertura_proposta_str
                         current_result[abertura_proposta_chave] = abertura_proposta_data
                     except IndexError as e:
-                        log.error(
-                            'error when trying to extract "Abertura da proposta" - {}'.format(
-                                current_result))
-                        log.exception(e)
+                        print(e)
                         pass
 
             page_results.append(current_result)
