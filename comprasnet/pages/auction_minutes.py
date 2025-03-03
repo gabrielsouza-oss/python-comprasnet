@@ -27,7 +27,7 @@ class AuctionMinutes(BaseDetail):
                   "numprp": self.numprp,
                   "codigoModalidade":5,
                  }
-        return self._order_dict(params)
+        return self.params
 
     def get_data(self):
         print(self.DETAIL_URL,self.get_params())
