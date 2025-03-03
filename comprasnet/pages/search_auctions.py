@@ -261,11 +261,11 @@ class SearchAuctions:
 
                         entrega_proposta_valor = line.split(':')[1]
                         entrega_proposta_valor = entrega_proposta_valor.split('</b>')[1]
-                        entrega_proposta_valor_str = entrega_proposta_valor.split()[3]
-                        entrega_proposta_valor_date = datetime.strptime(entrega_proposta_valor_str,
-                                                                        '%d/%m/%Y').date()
-                        current_result[entrega_proposta_chave_str] = entrega_proposta_valor_str
-                        current_result[entrega_proposta_chave] = entrega_proposta_valor_date
+                        # entrega_proposta_valor_str = entrega_proposta_valor.split()[3]
+                        # entrega_proposta_valor_date = datetime.strptime(entrega_proposta_valor_str,
+                        #                                                 '%d/%m/%Y').date()
+                        # current_result[entrega_proposta_chave_str] = entrega_proposta_valor_str
+                        # current_result[entrega_proposta_chave] = entrega_proposta_valor_date
                     except IndexError as e:
                         log.error('error when trying to extract "Entrega da proposta" - {}'.format(
                             current_result))
