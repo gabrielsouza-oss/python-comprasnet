@@ -30,8 +30,8 @@ class AuctionMinutes(BaseDetail):
         return self._order_dict(params)
 
     def get_data(self):
-        response = requests.get(self.DETAIL_URL, params=self.get_params())
         print(self.DETAIL_URL,self.get_params())
+        response = requests.get(self.DETAIL_URL, params=self.get_params())
         if not response.status_code == requests.codes.ok:
             log.error('error trying to get "Ata" from "Pregão" {}/{}. Status code: {}'.format(
                 self.co_no_uasg, self.numprp, response.status_code
