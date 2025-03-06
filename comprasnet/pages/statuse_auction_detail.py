@@ -51,7 +51,7 @@ class StatuseAuctionDetail(BaseDetail):
                     header = items.find('span', class_='tex3b')
                     description = items.find('span', class_='tex3')
                     try:
-                        item_number, title = header.text.split(' - ')[:2]
+                        item_number, title = header.text.split('-')[:2]
                         item['numero'] = int(item_number)
                         item['titulo'] = title.strip()
 
